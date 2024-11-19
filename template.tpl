@@ -241,11 +241,11 @@ if (requestPath === '/recaptcha' ||
             cookieOptions
           );
         }
-        const responseMsg = data.returnResponse ? JSON.stringify({status: 'success', score: response.score}) : 'success';
+        const responseMsg = data.returnResponse ? JSON.stringify({status: 'success', action: response.action, score: response.score}) : 'success';
         
         proxyResponse(responseMsg, {}, 200);
       } else {
-        fail(JSON.stringify({status: 'failure', errorCodes: data['error-codes']}));
+        fail(JSON.stringify({status: 'failure', errorCodes: response['error-codes']}));
       }
     }, {method: 'POST', timeout: 2000, headers: {'content-type': 'application/x-www-form-urlencoded'}}, postBody);
   }  
