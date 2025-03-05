@@ -232,6 +232,7 @@ if (requestPath === '/recaptcha' ||
           const cookieOptions = {
             httpOnly: data.httpOnly,
             domain: 'auto',
+            path: '/',
             secure: true
           };
           if (data.maxAge !== '0') cookieOptions['max-age'] = data.maxAge;
